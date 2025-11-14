@@ -25,7 +25,7 @@
 #include "LfpLatencyProcessorVisualizerContentComponent.h"
 
 // So we can make the setup box less dark.
-class CustomLookAndFeel : public juce::LookAndFeel_V3
+class MyCustomLookAndFeel : public juce::LookAndFeel_V3
 {
 public:
     void drawCallOutBoxBackground(CallOutBox &box, Graphics &g, const Path &path, Image &cachedImage) override
@@ -340,7 +340,7 @@ LfpLatencyProcessorVisualizerContentComponent::LfpLatencyProcessorVisualizerCont
     stimulusVoltageSlider->setSliderStyle(Slider::ThreeValueVertical);
     stimulusVoltageSlider->setTextBoxStyle(Slider::NoTextBox, true, 80, 20);
     stimulusVoltageSlider->addListener(this);
-    stimulusVoltageSlider->setLookAndFeel(new CustomLookAndFeel);
+    stimulusVoltageSlider->setLookAndFeel(new MyCustomLookAndFeel);
     stimulusVoltageSlider->setColour(Slider::ColourIds::thumbColourId, Colours::darkgrey);
     stimulusVoltageSliderLabel = new Label("Stimulus_Voltage_Slider_Label");
     stimulusVoltageSliderLabel->setText("Stimulus Voltage", sendNotification);
@@ -881,7 +881,7 @@ void LfpLatencyProcessorVisualizerContentComponent::buttonClicked(Button *button
         auto view = this->createSetupView();
 
         auto &setupBox = juce::CallOutBox::launchAsynchronously(std::move(view), otherControlPanel->getSetupBoundsInPanelParent(), this);
-        setupBox.setLookAndFeel(new CustomLookAndFeel());
+        setupBox.setLookAndFeel(new MyCustomLookAndFeel());
     }
     if (buttonThatWasClicked->getName() == "Options")
     {
@@ -924,7 +924,7 @@ void LfpLatencyProcessorVisualizerContentComponent::buttonClicked(Button *button
         rightMiddlePanel->setBounds(10, 160, 280, 140);
         view->setSize(300, 360);
         auto &setupBox = juce::CallOutBox::launchAsynchronously(std::move(view), otherControlPanel->getOptionsBoundsInPanelParent(), this);
-        setupBox.setLookAndFeel(new CustomLookAndFeel());
+        setupBox.setLookAndFeel(new MyCustomLookAndFeel());
     }
 
     if (buttonThatWasClicked == addNewSpikeButton)

@@ -50,8 +50,7 @@ public:
     /** Called when the component's tab becomes visible again.*/
     void refreshState() override;
 
-    /** Called when parameters of underlying data processor are changed.*/
-    void update() override;
+    void updateSettings() override;
 
     /** Called instead of "repaint" to avoid redrawing underlying components if not necessary.*/
     void refresh() override;

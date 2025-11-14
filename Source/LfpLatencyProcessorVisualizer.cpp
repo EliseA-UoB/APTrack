@@ -57,7 +57,7 @@ void LfpLatencyProcessorVisualizer::refreshState()
 {
 }
 
-void LfpLatencyProcessorVisualizer::update()
+void LfpLatencyProcessorVisualizer::updateSettings()
 {
 
     // Get number of availiable channels and update label
@@ -160,7 +160,7 @@ void LfpLatencyProcessorVisualizer::timerCallback()
     updateSpectrogram();
     content.spikeTracker->updateContent();
     std::ostringstream ss_ms_latency;
-    ss_ms_latency << std::fixed << std::setprecision(2) << (content.getSearchBoxSampleLocation() * 1000) / CoreServices::getGlobalSampleRate();
+    ss_ms_latency << std::fixed << std::setprecision(2) << (content.getSearchBoxSampleLocation() * 1000) / 1000.0;
     content.rightMiddlePanel->setROISpikeLatencyText(ss_ms_latency.str());
     // content.rightMiddlePanel->setROISpikeMagnitudeText("NaN");
     int i = processor->getSelectedSpike();

@@ -45,11 +45,15 @@ ppControllerVisualizer::ppControllerVisualizer(LfpLatencyProcessor *processor)
     lastFilePath = CoreServices::getDefaultUserSaveDirectory();
 
     // Populate GUI
-    addAndMakeVisible(getFileButton = new UtilityButton("F", Font("Small Text", 13, Font::plain)));
+    getFileButton = new UtilityButton("F");
+    addAndMakeVisible(getFileButton);
+    getFileButton->setFont(FontOptions(13.0,Font::plain));
     getFileButton->setButtonText("F:");
     getFileButton->addListener(this);
 
-    addAndMakeVisible(startStopButton = new UtilityButton(">", Font("Small Text", 13, Font::plain)));
+    startStopButton = new UtilityButton(">");
+    addAndMakeVisible(startStopButton);
+    startStopButton->setFont(FontOptions(13.0,Font::plain));
     // startStopButton->setButtonText(">");
     startStopButton->addListener(this);
     startStopButton->setEnabled(false);
