@@ -723,12 +723,12 @@ void LfpLatencyProcessor::changeParameter(int parameterID, float value)
         break;
     case 3:
         // change current trigger chan
-        if (value >= 0 && value < 25)
+        if (value >= 0 && value < 41)
             triggerChannel_idx = value;
         break;
     case 4:
         // change current trigger chan
-        if (value >= 0 && value < 25)
+        if (value >= 0 && value < 41)
             dataChannel_idx = value;
         break;
     case 5:
